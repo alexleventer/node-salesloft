@@ -24,4 +24,12 @@ export default class Accounts extends Resource {
       }
     });
   }
+
+  async deleteAccount(id: string) {
+    return await super.delete(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

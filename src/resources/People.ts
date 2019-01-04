@@ -32,6 +32,14 @@ export default class People extends Resource {
       }
     });
   }
+
+  async deletePerson(id: string) {
+    return await super.delete(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }
 
 export interface PersonRequest {
