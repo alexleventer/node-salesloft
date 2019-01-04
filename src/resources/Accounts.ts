@@ -13,6 +13,7 @@ export default class Accounts extends Resource {
     return await super.get(this.endpoint, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
-      }});
+      }
+    });
   }
 }

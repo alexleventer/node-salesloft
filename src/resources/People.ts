@@ -21,7 +21,7 @@ export default class People extends Resource {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
       },
-    })
+    });
   }
 }
 
