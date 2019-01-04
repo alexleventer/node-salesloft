@@ -1,16 +1,18 @@
-import { get } from '../utils';
+import Resource from '../Resource';
 
-class Team {
+export default class Team extends Resource {
   private readonly endpoint:string;
   private readonly apiKey:string;
   constructor(endpoint:string, apiKey:string) {
+    super();
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
 
   async fetchCurrentTeam() {
-    return await get(this.endpoint, this.apiKey);
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }});
   }
 }
-
-export default Team;

@@ -14,7 +14,7 @@ describe('SalesLoft', async () => {
     expect(meResults.data).to.have.property('first_name');
     expect(meResults.data).to.have.property('last_name');
   });
-  it('should fetch current team', async () => {
+  it.only('should fetch current team', async () => {
     const teamResults = await team.fetchCurrentTeam();
     expect(teamResults).to.have.property('data');
     expect(teamResults.data).to.have.property('id');
