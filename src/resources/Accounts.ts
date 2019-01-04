@@ -1,6 +1,6 @@
 import Resource from '../Resource';
 
-export default class Account extends Resource {
+export default class Accounts extends Resource {
   private readonly endpoint:string;
   private readonly apiKey:string;
   constructor(endpoint:string, apiKey:string) {
@@ -9,7 +9,7 @@ export default class Account extends Resource {
     this.apiKey = apiKey;
   }
 
-  async fetchCurrentUser() {
+  async listAccounts() {
     return await super.get(this.endpoint, this.apiKey);
   }
 }
