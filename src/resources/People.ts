@@ -16,9 +16,8 @@ export default class People extends Resource {
       }
     });
   }
-  public async createPerson(data: CreatePersonRequest) {
-    return await super.post(this.endpoint, {
-      data,
+  public async createPerson(data: PersonRequest) {
+    return await super.post(this.endpoint, data, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
       },
@@ -26,11 +25,12 @@ export default class People extends Resource {
   }
 }
 
-export interface CreatePersonRequest {
+export interface PersonRequest {
   email_address: string;
   secondary_email_address?: string;
   personal_email_address?: string;
   first_name: string;
+  last_name: string;
   phone?: string;
   phone_extension?: string;
   mobile_phone?: string;
@@ -43,8 +43,8 @@ export interface CreatePersonRequest {
   work_city?: string;
   work_state?: string;
   work_country?: string;
-  person_company_name: string;
-  person_company_website: string;
+  person_company_name?: string;
+  person_company_website?: string;
   person_company_industry?: string;
   do_not_contact?: boolean;
   locale?: string;
@@ -53,9 +53,9 @@ export interface CreatePersonRequest {
   tags?: string[];
   contact_restrictions?: string[];
   custom_fields?: any[];
-  account_id: number;
-  owner_id: number;
-  import_id: number;
-  person_stage_id: number;
+  account_id?: number;
+  owner_id?: number;
+  import_id?: number;
+  person_stage_id?: number;
   autotag_date?: boolean;
 }
