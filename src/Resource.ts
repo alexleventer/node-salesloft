@@ -21,7 +21,15 @@ export default class Resource {
   }
   async get(endpoint: string, config?: AxiosRequestConfig) {
     try {
-      const results:AxiosResponse =  await this.axios.get(`${this.apiBase}${endpoint}`, config);
+      const results:AxiosResponse = await this.axios.get(`${this.apiBase}${endpoint}`, config);
+      return results.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async delete(endpoint: string, config?: AxiosRequestConfig) {
+    try {
+      const results:AxiosResponse = await this.axios.delete(`${this.apiBase}${endpoint}`, config);
       return results.data;
     } catch (error) {
       throw error;

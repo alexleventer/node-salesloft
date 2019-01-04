@@ -16,4 +16,34 @@ export default class CadenceMemberships extends Resource {
       }
     });
   }
+
+  async createCadenceMembership(data:CadenceMembershipRequest) {
+    return await super.post(`${this.endpoint}`, data, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
+
+  async deleteCadenceMembership(cadenceId: string) {
+    return await super.delete(`${this.endpoint}/${cadenceId}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
+
+  async fetchCadenceMembership(cadenceId: string) {
+    return await super.get(`${this.endpoint}/${cadenceId}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
+}
+
+export interface CadenceMembershipRequest {
+  person_id: number;
+  cadence_id: number;
+  user_id?: number;
 }

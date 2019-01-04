@@ -10,7 +10,7 @@ export default class ActionDetails extends Resource {
   }
 
   async listCallInstructions() {
-    return await super.get(this.endpoint, {
+    return await super.get(`${this.endpoint}/call_instructions`, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
       }
