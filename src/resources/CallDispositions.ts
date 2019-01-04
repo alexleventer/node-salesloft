@@ -8,4 +8,12 @@ export default class CallDispositions extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+
+  public async listCallDispositions() {
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

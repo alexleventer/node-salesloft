@@ -16,4 +16,12 @@ export default class Cadences extends Resource {
       }
     });
   }
+
+  async fetchCadence(id: string) {
+    return await super.get(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

@@ -8,4 +8,12 @@ export default class CRMActivities extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+
+  public async listCRMActivities() {
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

@@ -8,4 +8,12 @@ export default class PersonStages extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+
+  public async listPersonStages() {
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

@@ -8,4 +8,12 @@ export default class TeamTemplates extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+
+  public async listTeamTemplates() {
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

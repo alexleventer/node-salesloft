@@ -8,4 +8,12 @@ export default class Notes extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+
+  public async listNotes() {
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

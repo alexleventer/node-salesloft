@@ -8,4 +8,11 @@ export default class Activities extends Resource {
     this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
+  public async createActivity(data: ActivityRequest) {
+    return await super.post(this.endpoint, data);
+  }
+}
+
+export interface ActivityRequest {
+  action_id: number;
 }
