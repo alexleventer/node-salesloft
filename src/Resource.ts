@@ -19,6 +19,14 @@ export default class Resource {
       throw error;
     }
   }
+  async put(endpoint: string, data: any, config?: AxiosRequestConfig) {
+    try {
+      const results:AxiosResponse = await this.axios.put(`${this.apiBase}${endpoint}`, data, config);
+      return results.data;
+    } catch (error) {
+      throw error;
+    }
+  }
   async get(endpoint: string, config?: AxiosRequestConfig) {
     try {
       const results:AxiosResponse = await this.axios.get(`${this.apiBase}${endpoint}`, config);
