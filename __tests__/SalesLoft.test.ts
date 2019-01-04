@@ -6,7 +6,7 @@ const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
   const sl =  new SalesLoft(API_KEY);
-  const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People, CadenceMemberships } = sl;
+  const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People, CadenceMemberships, Users } = sl;
   describe('Me', async () => {
     it('should fetch current user', async () => {
       const meResults = await Me.fetchCurrentUser();
@@ -68,6 +68,12 @@ describe('SalesLoft', async () => {
     it('should list cadence memberships', async () => {
       const cadenceMembershipResults = await CadenceMemberships.listCadenceMemberships();
       expect(cadenceMembershipResults).to.have.property('data');
+    });
+  });
+  describe('Users', async () => {
+    it('should list users', async () => {
+      const usersResults = await Users.listUsers();
+      expect(usersResults).to.have.property('data');
     });
   });
 });
