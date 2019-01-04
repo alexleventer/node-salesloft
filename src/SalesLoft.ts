@@ -8,20 +8,14 @@ import ActionDetails from './resources/ActionDetails';
 
 export default class SalesLoft {
   private readonly apiKey: string;
-  public Me: Resource;
-  public Team: Resource;
-  public Accounts: Resource;
-  public Cadences: Resource;
-  public Actions: Resource;
-  public ActionDetails: Resource;
+  public Me = new Me('/me.json', this.apiKey);
+  public Team = new Team('/team.json', this.apiKey);
+  public Accounts = new Accounts('/accounts.json', this.apiKey);
+  public Cadences = new Cadences('/cadences.json', this.apiKey);
+  public Actions = new Actions('/actions.json', this.apiKey);
+  public ActionDetails = new ActionDetails('/action_details/call_instructions.json', this.apiKey);
   constructor(apiKey:string) {
     this.apiKey = apiKey;
-    this.Me = new Me(`/me.json`, this.apiKey);
-    this.Team = new Team(`/team.json`, this.apiKey);
-    this.Accounts = new Accounts('/accounts.json', this.apiKey);
-    this.Cadences = new Cadences('/cadences.json', this.apiKey);
-    this.Actions = new Actions('/actions.json', this.apiKey);
-    this.ActionDetails = new ActionDetails('/action_details/call_instructions.json', this.apiKey);
   }
   getApiKey() {
     return this.apiKey;

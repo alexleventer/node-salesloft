@@ -10,6 +10,9 @@ export default class Me extends Resource {
   }
 
   async fetchCurrentUser() {
-    return await super.get(this.endpoint, this.apiKey);
+    return await super.get(this.endpoint, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }});
   }
 }
