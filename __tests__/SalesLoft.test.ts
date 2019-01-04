@@ -6,7 +6,7 @@ const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
   const sl =  new SalesLoft(API_KEY);
-  const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People } = sl;
+  const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People, CadenceMemberships } = sl;
   describe('Me', async () => {
     it('should fetch current user', async () => {
       const meResults = await Me.fetchCurrentUser();
@@ -49,7 +49,7 @@ describe('SalesLoft', async () => {
       expect(accountResults).to.have.property('data');
     });
   });
-  describe.only('People', async () => {
+  describe('People', async () => {
     it('should list people', async () => {
       const peopleResults = await People.listPeople();
       expect(peopleResults).to.have.property('data');
@@ -63,5 +63,11 @@ describe('SalesLoft', async () => {
       const peopleResults = await People.createPerson(personRequest);
       expect(peopleResults).to.have.property('data');
     })
+  });
+  describe('Cadence Memberships', async () => {
+    it('should list cadence memberships', async () => {
+      const cadenceMembershipResults = await CadenceMemberships.listCadenceMemberships();
+      expect(cadenceMembershipResults).to.have.property('data');
+    });
   });
 });
