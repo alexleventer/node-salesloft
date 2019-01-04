@@ -16,11 +16,20 @@ export default class People extends Resource {
       }
     });
   }
+
   public async createPerson(data: PersonRequest) {
     return await super.post(this.endpoint, data, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
       },
+    });
+  }
+
+  async fetchPerson(id: string) {
+    return await super.get(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
     });
   }
 }

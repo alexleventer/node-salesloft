@@ -16,4 +16,12 @@ export default class Steps extends Resource {
       }
     });
   }
+
+  async fetchStep(id: string) {
+    return await super.get(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

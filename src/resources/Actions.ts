@@ -16,4 +16,12 @@ export default class Actions extends Resource {
       }
     });
   }
+
+  async fetchAction(id: string) {
+    return await super.get(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }

@@ -16,4 +16,12 @@ export default class Successes extends Resource {
       }
     });
   }
+
+  async fetchCall(id: string) {
+    return await super.get(`${this.endpoint}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
 }
