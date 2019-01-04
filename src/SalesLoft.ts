@@ -9,6 +9,8 @@ import People from './resources/People';
 import Users from './resources/Users';
 import Tags from './resources/Tags';
 import TeamTemplates from './resources/TeamTemplates';
+import Successes from './resources/Successes';
+import Steps from './resources/Steps';
 
 export default class SalesLoft {
   private readonly apiKey: string;
@@ -20,6 +22,8 @@ export default class SalesLoft {
   public Actions = new Actions('/actions', this.apiKey);
   public ActionDetails = new ActionDetails('/action_details', this.apiKey);
   public People = new People('/people', this.apiKey);
+  public Steps = new Steps('/successes', this.apiKey);
+  public Successes = new Successes('/steps', this.apiKey);
   public Tags = new Tags('/tags', this.apiKey);
   public TeamTemplates = new TeamTemplates('/team_templates', this.apiKey);
   public Users = new Users('/users', this.apiKey);
