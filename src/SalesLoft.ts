@@ -1,10 +1,10 @@
 import Me from './resources/Me';
 import Team from './resources/Team';
 import Accounts from './resources/Accounts';
-import Resource from './Resource';
 import Cadences from './resources/Cadences';
 import Actions from './resources/Actions';
 import ActionDetails from './resources/ActionDetails';
+import People from './resources/People';
 
 export default class SalesLoft {
   private readonly apiKey: string;
@@ -14,6 +14,7 @@ export default class SalesLoft {
   public Cadences = new Cadences('/cadences.json', this.apiKey);
   public Actions = new Actions('/actions.json', this.apiKey);
   public ActionDetails = new ActionDetails('/action_details/call_instructions.json', this.apiKey);
+  public People = new People('/people.json', this.apiKey);
   constructor(apiKey:string) {
     this.apiKey = apiKey;
   }
