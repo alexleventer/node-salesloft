@@ -75,7 +75,7 @@ export default class SalesLoft {
     this.Calls = new Calls('/activities/calls', apiKey);
     this.CallSentiments = new CallSentiments('/call_sentiments', apiKey);
     this.CallerIDs = new CallerIDs('/phone_numbers/caller_ids', apiKey);
-    this.CRMActivityFields = new CRMActivityFields('/crm_activity_fieldss' , apiKey);
+    this.CRMActivityFields = new CRMActivityFields('/crm_activity_fields' , apiKey);
     this.CRMActivities = new CRMActivities('/crm_activities', apiKey);
     this.CustomFields = new CustomFields('/custom_fields', apiKey);
     this.Emails = new Emails('/activities/emails', apiKey);

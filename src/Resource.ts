@@ -51,6 +51,10 @@ export default class Resource {
       }));
       return results.data;
     } catch (error) {
+      const statusCode = error.response.status;
+      if (statusCode === 422) {
+        throw new Error(`${JSON.stringify(error.response.data, null, 2)}`);
+      }
       throw error;
     }
   }

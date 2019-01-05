@@ -4,20 +4,42 @@ import { expect } from 'chai';
 import { PersonRequest } from '../src/resources/People';
 import { CurrentUserResponse } from '../src/resources/Me';
 import { TeamResponse } from '../src/resources/Team';
-import {UsersFilter} from '../src/resources/Users';
+import { UsersFilter } from '../src/resources/Users';
+import { CallerIDsFilter } from '../src/resources/CallerIDs';
 const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
   const sl =  new SalesLoft(API_KEY);
   const {
-    Me,
-    Team,
     Accounts,
-    Cadences,
     ActionDetails,
     Actions,
-    People,
+    Activities,
     CadenceMemberships,
+    Cadences,
+    CallDataRecords,
+    CallDispositions,
+    CallerIDs,
+    Calls,
+    CallSentiments,
+    CRMActivities,
+    CRMActivityFields,
+    CustomFields,
+    Emails,
+    EmailTemplates,
+    Imports,
+    LiveWebsiteTrackingParameters,
+    Me,
+    Notes,
+    OngoingActions,
+    People,
+    PersonStages,
+    RecordingSettings,
+    Steps,
+    Successes,
+    Tags,
+    Team,
+    TeamTemplates,
     Users,
   } = sl;
   describe('Me', async () => {
@@ -34,6 +56,69 @@ describe('SalesLoft', async () => {
       const teamResults:TeamResponse = await Team.list();
       expect(teamResults).to.have.property('id');
       expect(teamResults).to.have.property('name');
+    });
+  });
+  describe('Call Dispositions', async () => {
+    it('should list call dispositions', async () => {
+      const callDispositionResults:TeamResponse = await CallDispositions.list();
+      expect(callDispositionResults).to.be.an('array');
+    });
+  });
+  describe('CallerIDs', async () => {
+    it('should list caller ids', async () => {
+      const filter:CallerIDsFilter = {
+        phone_number: '1231231234',
+      };
+      const callerIdResults = await CallerIDs.list(filter);
+      expect(callerIdResults).to.be.an('array');
+    });
+  });
+  describe('Calls', async () => {
+    it('should list calls', async () => {
+      const callResults = await Calls.list();
+      expect(callResults).to.be.an('array');
+    });
+  });
+  describe('Call Sentiments', async () => {
+    it('should list call sentiments', async () => {
+      const callSentimentResults = await CallSentiments.list();
+      expect(callSentimentResults).to.be.an('array');
+    });
+  });
+  describe('CRM Activities', async () => {
+    it('should list crm activities', async () => {
+      const crmActivityResults = await CRMActivities.list();
+      expect(crmActivityResults).to.be.an('array');
+    });
+  });
+  describe('CRM Activity Fields', async () => {
+    it('should list crm activities fields', async () => {
+      const crmActivityFieldResults = await CRMActivityFields.list();
+      expect(crmActivityFieldResults).to.be.an('array');
+    });
+  });
+  describe('Custom Fields', async () => {
+    it('should list custom fields', async () => {
+      const customFieldResults = await CustomFields.list();
+      expect(customFieldResults).to.be.an('array');
+    });
+  });
+  describe('Emails', async () => {
+    it('should list emails', async () => {
+      const emailResults = await Emails.list();
+      expect(emailResults).to.be.an('array');
+    });
+  });
+  describe('Email Templates', async () => {
+    it('should list email templates', async () => {
+      const emailTemplateResults = await EmailTemplates.list();
+      expect(emailTemplateResults).to.be.an('array');
+    });
+  });
+  describe('Imports', async () => {
+    it('should list imports', async () => {
+      const importResults = await Imports.list();
+      expect(importResults).to.be.an('array');
     });
   });
   describe('Accounts', async () => {
@@ -88,6 +173,48 @@ describe('SalesLoft', async () => {
       };
       const usersResults = await Users.list(filter);
       expect(usersResults).to.be.an('array');
+    });
+  });
+  describe('Notes', async () => {
+    it('should list notes', async () => {
+      const notesResults = await Notes.list();
+      expect(notesResults).to.be.an('array');
+    });
+  });
+  describe('PersonStages', async () => {
+    it('should list person stages', async () => {
+      const personStagesResults = await PersonStages.list();
+      expect(personStagesResults).to.be.an('array');
+    });
+  });
+  describe('Steps', async () => {
+    it('should list steps', async () => {
+      const stepsResults = await Steps.list();
+      expect(stepsResults).to.be.an('array');
+    });
+  });
+  describe('Successes', async () => {
+    it('should list successes', async () => {
+      const successesResults = await Successes.list();
+      expect(successesResults).to.be.an('array');
+    });
+  });
+  describe('Tags', async () => {
+    it('should list tags', async () => {
+      const tagsResults = await Tags.list();
+      expect(tagsResults).to.be.an('array');
+    });
+  });
+  describe('Team Templates', async () => {
+    it('should list team templates', async () => {
+      const teamTemplatesResults = await TeamTemplates.list();
+      expect(teamTemplatesResults).to.be.an('array');
+    });
+  });
+  describe('Call Data Records', async () => {
+    it('should call data records', async () => {
+      const callDataRecordsResults = await CallDataRecords.list();
+      expect(callDataRecordsResults).to.be.an('array');
     });
   });
 });
