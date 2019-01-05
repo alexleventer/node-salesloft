@@ -17,8 +17,8 @@ export default class Accounts extends Resource {
     return await super.delete(id);
   }
 
-  createAccount(data: AccountRequest) {
-    return this.postRequest(this.getEndpoint(), data);
+  async create(data: AccountRequest) {
+    return await super.create(data);
   }
 }
 

@@ -87,4 +87,8 @@ export default class Resource {
   protected async delete(id: string) {
     return await this.deleteRequest(`${this.endpoint}/${id}`);
   }
+
+  protected async create(data: any) {
+    return await this.postRequest(`${this.endpoint}`, data);
+  }
 }

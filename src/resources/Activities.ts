@@ -6,7 +6,7 @@ export default class Activities extends Resource {
   }
 
   public async create(data: ActivityRequest) {
-    return await super.postRequest(this.getEndpoint(), data);
+    return await super.create(data);
   }
 }
 

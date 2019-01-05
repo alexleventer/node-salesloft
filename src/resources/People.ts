@@ -14,7 +14,7 @@ export default class People extends Resource {
   }
 
   public async create(data: PersonRequest) {
-    return await super.postRequest(this.getEndpoint(), data);
+    return await super.create(data);
   }
 
   async delete(id: string) {
