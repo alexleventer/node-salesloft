@@ -29,7 +29,7 @@ import OngoingActions from './resources/OngoingActions';
 import PersonStages from './resources/PersonStages';
 import RecordingSettings from './resources/RecordingSettings';
 
-export default class SalesLoft {
+export class SalesLoft {
   public Me: Me;
   public Team: Team;
   public Accounts: Accounts;

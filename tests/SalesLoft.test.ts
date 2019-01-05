@@ -1,4 +1,4 @@
-import SalesLoft from '../src/SalesLoft';
+import { SalesLoft } from '../src/SalesLoft';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { PersonRequest } from '../src/resources/People';
