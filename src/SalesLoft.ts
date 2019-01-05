@@ -30,7 +30,6 @@ import PersonStages from './resources/PersonStages';
 import RecordingSettings from './resources/RecordingSettings';
 
 export default class SalesLoft {
-  private readonly apiKey: string;
   public Me: Me;
   public Team: Team;
   public Accounts: Accounts;
@@ -63,39 +62,35 @@ export default class SalesLoft {
   public Users: Users;
 
   constructor(apiKey:string) {
-    this.apiKey = apiKey;
-    this.Me = new Me('/me', this.apiKey);
-    this.Team = new Team('/team', this.apiKey);
-    this.Accounts = new Accounts('/accounts', this.apiKey);
-    this.Actions = new Actions('/actions', this.apiKey);
-    this.ActionDetails = new ActionDetails('/action_details', this.apiKey);
-    this.Activities = new Activities('/activities', this.apiKey);
-    this.Cadences = new Cadences('/cadences', this.apiKey);
-    this.CadenceMemberships = new CadenceMemberships('/cadence_memberships', this.apiKey);
-    this.CallDataRecords = new CallDataRecords('/call_data_records', this.apiKey);
-    this.CallDispositions = new CallDispositions('/call_dispositions', this.apiKey);
-    this.Calls = new Calls('/activities/calls', this.apiKey);
-    this.CallSentiments = new CallSentiments('/call_sentiments', this.apiKey);
-    this.CallerIDs = new CallerIDs('/phone_numbers/caller_ids', this.apiKey);
-    this.CRMActivityFields = new CRMActivityFields('/crm_activity_fieldss' , this.apiKey);
-    this.CRMActivities = new CRMActivities('/crm_activities', this.apiKey);
-    this.CustomFields = new CustomFields('/custom_fields', this.apiKey);
-    this.Emails = new Emails('/activities/emails', this.apiKey);
-    this.EmailTemplates = new EmailTemplates('/email_templates', this.apiKey);
-    this.Imports = new Imports('/imports', this.apiKey);
-    this.LiveWebsiteTrackingParameters = new LiveWebsiteTrackingParameters('/live_website_tracking_parameters' , this.apiKey);
-    this.Notes = new Notes('/notes', this.apiKey);
-    this.OngoingActions = new OngoingActions('/ongoing_actions', this.apiKey);
-    this.People = new People('/people', this.apiKey);
-    this.PersonStages = new PersonStages('/person_stages', this.apiKey);
-    this.RecordingSettings = new RecordingSettings('/recording_settings', this.apiKey);
-    this.Steps = new Steps('/successes', this.apiKey);
-    this.Successes = new Successes('/steps', this.apiKey);
-    this.Tags = new Tags('/tags', this.apiKey);
-    this.TeamTemplates = new TeamTemplates('/team_templates', this.apiKey);
-    this.Users = new Users('/users', this.apiKey);
-  }
-  getApiKey() {
-    return this.apiKey;
+    this.Me = new Me('/me', apiKey);
+    this.Team = new Team('/team', apiKey);
+    this.Accounts = new Accounts('/accounts', apiKey);
+    this.Actions = new Actions('/actions', apiKey);
+    this.ActionDetails = new ActionDetails('/action_details', apiKey);
+    this.Activities = new Activities('/activities', apiKey);
+    this.Cadences = new Cadences('/cadences', apiKey);
+    this.CadenceMemberships = new CadenceMemberships('/cadence_memberships', apiKey);
+    this.CallDataRecords = new CallDataRecords('/call_data_records', apiKey);
+    this.CallDispositions = new CallDispositions('/call_dispositions', apiKey);
+    this.Calls = new Calls('/activities/calls', apiKey);
+    this.CallSentiments = new CallSentiments('/call_sentiments', apiKey);
+    this.CallerIDs = new CallerIDs('/phone_numbers/caller_ids', apiKey);
+    this.CRMActivityFields = new CRMActivityFields('/crm_activity_fieldss' , apiKey);
+    this.CRMActivities = new CRMActivities('/crm_activities', apiKey);
+    this.CustomFields = new CustomFields('/custom_fields', apiKey);
+    this.Emails = new Emails('/activities/emails', apiKey);
+    this.EmailTemplates = new EmailTemplates('/email_templates', apiKey);
+    this.Imports = new Imports('/imports', apiKey);
+    this.LiveWebsiteTrackingParameters = new LiveWebsiteTrackingParameters('/live_website_tracking_parameters' , apiKey);
+    this.Notes = new Notes('/notes', apiKey);
+    this.OngoingActions = new OngoingActions('/ongoing_actions', apiKey);
+    this.People = new People('/people', apiKey);
+    this.PersonStages = new PersonStages('/person_stages', apiKey);
+    this.RecordingSettings = new RecordingSettings('/recording_settings', apiKey);
+    this.Steps = new Steps('/successes', apiKey);
+    this.Successes = new Successes('/steps', apiKey);
+    this.Tags = new Tags('/tags', apiKey);
+    this.TeamTemplates = new TeamTemplates('/team_templates', apiKey);
+    this.Users = new Users('/users', apiKey);
   }
 }
