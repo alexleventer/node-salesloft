@@ -6,7 +6,8 @@ export default class ActionDetails extends Resource {
   }
 
   async list() {
-    return await super.getRequest(`${this.getEndpoint()}/call_instructions`);
+    const results = await super.getRequest(`${this.getEndpoint()}/call_instructions`);
+    return results.data;
   }
 
   async fetch(id: string) {

@@ -77,22 +77,27 @@ export default class Resource {
   }
 
   protected async list() {
-    return await this.getRequest(this.endpoint);
+    const results =  await this.getRequest(this.endpoint);
+    return results.data;
   }
 
   protected async fetch(id: string) {
-    return await this.getRequest(`${this.endpoint}/${id}`);
+    const results = await this.getRequest(`${this.endpoint}/${id}`);
+    return results.data;
   }
 
   protected async delete(id: string) {
-    return await this.deleteRequest(`${this.endpoint}/${id}`);
+    const results = await this.deleteRequest(`${this.endpoint}/${id}`);
+    return results.data;
   }
 
   protected async create(data: any) {
-    return await this.postRequest(`${this.endpoint}`, data);
+    const results = await this.postRequest(`${this.endpoint}`, data);
+    return results.data;
   }
 
   protected async update(id:string, data: any) {
-    return await this.putRequest(`${this.endpoint}/${id}`, data);
+    const results = await this.putRequest(`${this.endpoint}/${id}`, data);
+    return results.data;
   }
 }
