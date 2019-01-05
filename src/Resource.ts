@@ -1,4 +1,4 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export default class Resource {
   private readonly axios: AxiosInstance;
@@ -12,14 +12,13 @@ export default class Resource {
     this.apiKey = apiKey;
   }
 
-  async postRequest(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
+  async postRequest(endpoint: string, data: any, config: AxiosRequestConfig = {}) {
     try {
-      const config = Object.assign(_config, {
+      const results:AxiosResponse = await this.axios.post(`${this.apiBase}${endpoint}`, data, Object.assign(config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
         },
-      });
-      const results:AxiosResponse = await this.axios.post(`${this.apiBase}${endpoint}`, data, config);
+      }));
       return results.data;
     } catch (error) {
       const statusCode = error.response.status;
@@ -30,42 +29,39 @@ export default class Resource {
     }
   }
 
-  async putRequest(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
+  async putRequest(endpoint: string, data: any, config: AxiosRequestConfig = {}) {
     try {
-      const config = Object.assign(_config, {
+      const results:AxiosResponse = await this.axios.put(`${this.apiBase}${endpoint}`, data, Object.assign(config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
         },
-      });
-      const results:AxiosResponse = await this.axios.put(`${this.apiBase}${endpoint}`, data, config);
+      }));
       return results.data;
     } catch (error) {
       throw error;
     }
   }
 
-  async getRequest(endpoint: string, _config: AxiosRequestConfig = {}) {
+  async getRequest(endpoint: string, config: AxiosRequestConfig = {}) {
     try {
-      const config = Object.assign(_config, {
+      const results:AxiosResponse = await this.axios.get(`${this.apiBase}${endpoint}`, Object.assign(config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
-        }
-      });
-      const results:AxiosResponse = await this.axios.get(`${this.apiBase}${endpoint}`, config);
+        },
+      }));
       return results.data;
     } catch (error) {
       throw error;
     }
   }
 
-  async deleteRequest(endpoint: string, _config: AxiosRequestConfig = {}) {
+  async deleteRequest(endpoint: string, config: AxiosRequestConfig = {}) {
     try {
-      const config = Object.assign(_config, {
+      const results:AxiosResponse = await this.axios.delete(`${this.apiBase}${endpoint}`, Object.assign(config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
         },
-      });
-      const results:AxiosResponse = await this.axios.delete(`${this.apiBase}${endpoint}`, config);
+      }));
       return results.data;
     } catch (error) {
       throw error;
