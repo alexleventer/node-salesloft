@@ -91,4 +91,8 @@ export default class Resource {
   protected async create(data: any) {
     return await this.postRequest(`${this.endpoint}`, data);
   }
+
+  protected async update(id:string, data: any) {
+    return await this.putRequest(`${this.endpoint}/${id}`, data);
+  }
 }
