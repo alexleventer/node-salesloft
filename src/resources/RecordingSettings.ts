@@ -5,7 +5,7 @@ export default class RecordingSettings extends Resource {
     super(endpoint, apiKey);
   }
 
-  async fetch(id: string) {
+  async fetch(id: number) {
     return await super.fetch(id);
   }
 }

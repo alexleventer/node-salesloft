@@ -103,3 +103,8 @@ export interface Filter {
   page?: number;
   include_paging_counts?: boolean;
 }
+
+export interface GenericResourceResponse {
+  _href: string;
+  id: number;
+}

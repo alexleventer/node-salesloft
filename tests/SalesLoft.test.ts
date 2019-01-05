@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { PersonRequest } from '../src/resources/People';
 import { CurrentUserResponse } from '../src/resources/Me';
 import { TeamResponse } from '../src/resources/Team';
-import { UsersFilter } from '../src/resources/Users';
+import {UserResponse, UsersFilter} from '../src/resources/Users';
 import { CallerIDsFilter } from '../src/resources/CallerIDs';
 const { API_KEY }:any = process.env;
 
@@ -171,8 +171,17 @@ describe('SalesLoft', async () => {
       const filter:UsersFilter = {
         guid: [],
       };
-      const usersResults = await Users.list(filter);
+      const usersResults:UserResponse[] = await Users.list(filter);
       expect(usersResults).to.be.an('array');
+    });
+    it('should fetch user', async () => {
+      const filter:UsersFilter = {
+        guid: [],
+      };
+      const usersResults:UserResponse[] = await Users.list(filter);
+      const { id, guid } = usersResults[0];
+      const fetchUserResults:UserResponse = await Users.fetch(id);
+      expect(fetchUserResults.guid).to.equal(guid);
     });
   });
   describe('Notes', async () => {

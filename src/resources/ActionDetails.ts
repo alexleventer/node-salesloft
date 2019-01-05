@@ -13,7 +13,7 @@ export default class ActionDetails extends Resource {
     return results.data;
   }
 
-  async fetch(id: string) {
+  async fetch(id: number) {
     return await super.fetch(id);
   }
 }

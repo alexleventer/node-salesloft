@@ -83,7 +83,7 @@ export default class Resource {
     return results.data;
   }
 
-  protected async fetch(id: string) {
+  protected async fetch(id: number) {
     const results = await this.getRequest(`${this.endpoint}/${id}`);
     return results.data;
   }

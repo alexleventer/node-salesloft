@@ -10,7 +10,7 @@ export default class Actions extends Resource {
     return await super.list(filter);
   }
 
-  async fetch(id: string) {
+  async fetch(id: number) {
     return await super.fetch(id);
   }
 }
