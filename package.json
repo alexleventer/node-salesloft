@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha __tests__/**/*.ts -r ts-node/register -R mocha-junit-reporter"
+    "test": "mocha __tests__/**/*.ts -r ts-node/register -R mocha-junit-reporter",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
   "author": "Alex Leventer",
   "license": "MIT",
@@ -13,7 +14,8 @@
     "@types/request-promise": "^4.1.42",
     "axios": "^0.18.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "tslint-config-airbnb": "^5.11.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
