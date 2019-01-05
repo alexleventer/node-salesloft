@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha __tests__/**/*.ts -r ts-node/register -R mocha-junit-reporter",
+    "test": "mocha tests/**/*.ts -r ts-node/register -R mocha-junit-reporter",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
   "author": "Alex Leventer",
