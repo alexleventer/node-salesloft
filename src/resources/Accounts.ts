@@ -1,12 +1,13 @@
 import Resource from '../Resource';
+import { Filter } from '../SalesLoft';
 
 export default class Accounts extends Resource {
   constructor(endpoint: string, apiKey: string) {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: AccountFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
@@ -51,4 +52,9 @@ export interface AccountRequest {
   tags?: string[];
   owner_id?: number;
   company_stage_id?: number;
+}
+
+export interface AccountFilter extends Filter {
+  updated_at?: any;
+  domain?: string;
 }

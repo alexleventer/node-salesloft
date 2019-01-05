@@ -1,12 +1,13 @@
 import Resource from '../Resource';
+import { Filter } from '../SalesLoft';
 
 export default class Imports extends Resource {
   constructor(endpoint: string, apiKey: string) {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: ImportsFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
@@ -29,4 +30,8 @@ export default class Imports extends Resource {
 export interface ImportRequest {
   user_id: number;
   name: string;
+}
+
+export interface ImportsFilter extends Filter {
+  user_ids?: number[];
 }

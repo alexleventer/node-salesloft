@@ -1,12 +1,13 @@
 import Resource from '../Resource';
+import { Filter } from '../SalesLoft';
 
 export default class People extends Resource {
   constructor(endpoint: string, apiKey: string) {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: PeopleFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
@@ -59,4 +60,13 @@ export interface PersonRequest {
   import_id?: number;
   person_stage_id?: number;
   autotag_date?: boolean;
+}
+
+export interface PeopleFilter extends Filter {
+  updated_at?: any;
+  email_addresses?: string[];
+  owned_by_guid?: number[];
+  person_stage_id?: number;
+  do_not_contact?: boolean;
+  can_email?: boolean;
 }

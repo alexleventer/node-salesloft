@@ -1,12 +1,13 @@
 import Resource from '../Resource';
+import { Filter } from '../SalesLoft';
 
 export default class CustomFields extends Resource {
   constructor(endpoint: string, apiKey: string) {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: CustomFieldsFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
@@ -28,5 +29,9 @@ export default class CustomFields extends Resource {
 
 export interface CustomFieldRequest {
   name: string;
+  field_type?: string;
+}
+
+export interface CustomFieldsFilter extends Filter {
   field_type?: string;
 }

@@ -72,8 +72,10 @@ export default class Resource {
     return this.endpoint;
   }
 
-  protected async list() {
-    const results =  await this.getRequest(this.endpoint);
+  protected async list(filter:any) {
+    const results =  await this.getRequest(this.endpoint, {
+      params: filter,
+    });
     return results.data;
   }
 

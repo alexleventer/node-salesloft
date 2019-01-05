@@ -5,8 +5,8 @@ export default class Team extends Resource {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter = {}) {
+    return await super.list(filter);
   }
 }
 

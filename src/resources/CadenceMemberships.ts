@@ -1,12 +1,13 @@
 import Resource from '../Resource';
+import { Filter } from '../SalesLoft';
 
 export default class CadenceMemberships extends Resource {
   constructor(endpoint: string, apiKey: string) {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: CadenceMembershipsFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
@@ -26,4 +27,10 @@ export interface CadenceMembershipRequest {
   person_id: number;
   cadence_id: number;
   user_id?: number;
+}
+
+export interface CadenceMembershipsFilter extends Filter {
+  person_id?: number;
+  cadence_id?: number;
+  updated_at?: any;
 }

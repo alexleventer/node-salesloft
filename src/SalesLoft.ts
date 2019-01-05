@@ -94,3 +94,12 @@ export default class SalesLoft {
     this.Users = new Users('/users', apiKey);
   }
 }
+
+export interface Filter {
+  ids?: number[];
+  sort_by?: string;
+  sort_direction?: 'ASC' | 'DESC';
+  per_page?: number;
+  page?: number;
+  include_paging_counts?: boolean;
+}

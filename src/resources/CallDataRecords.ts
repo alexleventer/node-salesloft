@@ -5,11 +5,16 @@ export default class CallDataRecords extends Resource {
     super(endpoint, apiKey);
   }
 
-  async list() {
-    return await super.list();
+  async list(filter: CallDataRecordsFilter = {}) {
+    return await super.list(filter);
   }
 
   async fetch(id: string) {
     return await super.fetch(id);
   }
+}
+
+export interface CallDataRecordsFilter {
+  has_call?: boolean;
+  updated_at?: any;
 }

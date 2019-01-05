@@ -4,6 +4,7 @@ import { expect } from 'chai';
 import { PersonRequest } from '../src/resources/People';
 import { CurrentUserResponse } from '../src/resources/Me';
 import { TeamResponse } from '../src/resources/Team';
+import {UsersFilter} from '../src/resources/Users';
 const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
@@ -82,7 +83,10 @@ describe('SalesLoft', async () => {
   });
   describe('Users', async () => {
     it('should list users', async () => {
-      const usersResults = await Users.list();
+      const filter:UsersFilter = {
+        guid: [],
+      };
+      const usersResults = await Users.list(filter);
       expect(usersResults).to.be.an('array');
     });
   });
