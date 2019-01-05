@@ -14,7 +14,7 @@ export default class Accounts extends Resource {
     return await super.fetch(id);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
@@ -22,7 +22,7 @@ export default class Accounts extends Resource {
     return await super.create(data);
   }
 
-  async update(id: string, data: AccountRequest) {
+  async update(id: number, data: AccountRequest) {
     return await super.update(id, data);
   }
 }

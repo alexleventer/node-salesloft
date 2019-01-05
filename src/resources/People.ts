@@ -18,11 +18,11 @@ export default class People extends Resource {
     return await super.create(data);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
-  public async update(id: string, data: PersonRequest) {
+  public async update(id: number, data: PersonRequest) {
     return await super.update(id, data);
   }
 }

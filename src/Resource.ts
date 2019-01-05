@@ -76,7 +76,7 @@ export default class Resource {
     return this.endpoint;
   }
 
-  protected async list(filter:any) {
+  protected async list(filter: any) {
     const results =  await this.getRequest(this.endpoint, {
       params: filter,
     });
@@ -88,7 +88,7 @@ export default class Resource {
     return results.data;
   }
 
-  protected async delete(id: string) {
+  protected async delete(id: number) {
     const results = await this.deleteRequest(`${this.endpoint}/${id}`);
     return results.data;
   }
@@ -98,7 +98,7 @@ export default class Resource {
     return results.data;
   }
 
-  protected async update(id:string, data: any) {
+  protected async update(id: number, data: any) {
     const results = await this.putRequest(`${this.endpoint}/${id}`, data);
     return results.data;
   }

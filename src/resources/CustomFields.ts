@@ -14,11 +14,11 @@ export default class CustomFields extends Resource {
     return await super.fetch(id);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
-  async update(id: string, data: CustomFieldRequest) {
+  async update(id: number, data: CustomFieldRequest) {
     return await super.update(id, data);
   }
 

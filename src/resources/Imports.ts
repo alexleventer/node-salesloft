@@ -14,11 +14,11 @@ export default class Imports extends Resource {
     return await super.fetch(id);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
-  async update(id: string, data: ImportRequest) {
+  async update(id: number, data: ImportRequest) {
     return await super.update(id, data);
   }
 

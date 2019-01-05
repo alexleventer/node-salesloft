@@ -18,7 +18,7 @@ export default class CadenceMemberships extends Resource {
     return await super.postRequest(`${this.getEndpoint()}`, data);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 }

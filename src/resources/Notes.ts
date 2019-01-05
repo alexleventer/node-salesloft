@@ -14,11 +14,11 @@ export default class Notes extends Resource {
     return await super.fetch(id);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
-  async update(id: string, data: NoteRequest) {
+  async update(id: number, data: NoteRequest) {
     return await super.update(id, data);
   }
 
@@ -30,7 +30,7 @@ export default class Notes extends Resource {
 export interface NoteRequest {
   content: string;
   associated_with_type: string;
-  associated_with_id: string;
+  associated_with_id: number;
   skip_crm_sync?: boolean;
   call_id?: number;
   subject?: string;

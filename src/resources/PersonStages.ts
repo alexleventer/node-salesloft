@@ -14,7 +14,7 @@ export default class PersonStages extends Resource {
     return await super.fetch(id);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await super.delete(id);
   }
 
@@ -22,7 +22,7 @@ export default class PersonStages extends Resource {
     return await super.create(data);
   }
 
-  async update(id: string, data:PersonStageRequest) {
+  async update(id: number, data:PersonStageRequest) {
     return await super.update(id, data);
   }
 }
