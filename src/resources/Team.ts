@@ -9,7 +9,7 @@ export default class Team extends Resource {
     this.apiKey = apiKey;
   }
 
-  public async fetchCurrentTeam():Promise<TeamResponse> {
+  public async fetchCurrentTeam(): Promise<TeamResponse> {
     return await super.get(this.endpoint, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY}`,
