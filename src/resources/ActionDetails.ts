@@ -1,17 +1,15 @@
 import Resource from '../Resource';
 
 export default class ActionDetails extends Resource {
-  private readonly endpoint: string;
   constructor(endpoint: string, apiKey: string) {
-    super(apiKey);
-    this.endpoint = endpoint;
+    super(endpoint, apiKey);
   }
 
-  async listCallInstructions() {
-    return await super.get(`${this.endpoint}/call_instructions`);
+  async list() {
+    return await super.getRequest(`${this.getEndpoint()}/call_instructions`);
   }
 
-  async fetchCallInstructions(id: string) {
-    return await super.get(`${this.endpoint}/${id}`);
+  async fetch(id: string) {
+    return await super.fetch(id);
   }
 }

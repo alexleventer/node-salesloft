@@ -4,12 +4,15 @@ export default class Resource {
   private readonly axios: AxiosInstance;
   private readonly apiBase: string;
   private readonly apiKey: string;
-  constructor(apiKey: string) {
+  private readonly endpoint: string;
+  constructor(endpoint: string, apiKey: string) {
     this.axios = axios;
     this.apiBase = 'https://api.salesloft.com/v2';
+    this.endpoint = endpoint;
     this.apiKey = apiKey;
   }
-  async post(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
+
+  async postRequest(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
     try {
       const config = Object.assign(_config, {
         headers: {
@@ -26,7 +29,8 @@ export default class Resource {
       throw error;
     }
   }
-  async put(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
+
+  async putRequest(endpoint: string, data: any, _config: AxiosRequestConfig = {}) {
     try {
       const config = Object.assign(_config, {
         headers: {
@@ -39,21 +43,22 @@ export default class Resource {
       throw error;
     }
   }
-  async get(endpoint: string, _config: AxiosRequestConfig = {}) {
+
+  async getRequest(endpoint: string, _config: AxiosRequestConfig = {}) {
     try {
       const config = Object.assign(_config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
         }
       });
-      console.log(config);
       const results:AxiosResponse = await this.axios.get(`${this.apiBase}${endpoint}`, config);
       return results.data;
     } catch (error) {
       throw error;
     }
   }
-  async delete(endpoint: string, _config: AxiosRequestConfig = {}) {
+
+  async deleteRequest(endpoint: string, _config: AxiosRequestConfig = {}) {
     try {
       const config = Object.assign(_config, {
         headers: {
@@ -65,5 +70,21 @@ export default class Resource {
     } catch (error) {
       throw error;
     }
+  }
+
+  getEndpoint():string {
+    return this.endpoint;
+  }
+
+  protected async list() {
+    return await this.getRequest(this.endpoint);
+  }
+
+  protected async fetch(id: string) {
+    return await this.getRequest(`${this.endpoint}/${id}`);
+  }
+
+  protected async delete(id: string) {
+    return await this.deleteRequest(`${this.endpoint}/${id}`);
   }
 }

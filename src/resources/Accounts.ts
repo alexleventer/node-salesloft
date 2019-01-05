@@ -1,26 +1,24 @@
 import Resource from '../Resource';
 
 export default class Accounts extends Resource {
-  private readonly endpoint: string;
   constructor(endpoint: string, apiKey: string) {
-    super(apiKey);
-    this.endpoint = endpoint;
+    super(endpoint, apiKey);
   }
 
-  async listAccounts() {
-    return await super.get(this.endpoint);
+  async list() {
+    return await super.list();
+  }
+
+  async fetch(id: string) {
+    return await super.fetch(id);
+  }
+
+  async delete(id: string) {
+    return await super.delete(id);
   }
 
   createAccount(data: AccountRequest) {
-    return this.post(this.endpoint, data);
-  }
-
-  async fetchAccount(id: string) {
-    return await super.get(`${this.endpoint}/${id}`);
-  }
-
-  async deleteAccount(id: string) {
-    return await super.delete(`${this.endpoint}/${id}`);
+    return this.postRequest(this.getEndpoint(), data);
   }
 }
 

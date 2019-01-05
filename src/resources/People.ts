@@ -1,26 +1,24 @@
 import Resource from '../Resource';
 
 export default class People extends Resource {
-  private readonly endpoint: string;
   constructor(endpoint: string, apiKey: string) {
-    super(apiKey);
-    this.endpoint = endpoint;
+    super(endpoint, apiKey);
   }
 
-  public async listPeople() {
-    return await super.get(this.endpoint);
+  async list() {
+    return await super.list();
   }
 
-  public async createPerson(data: PersonRequest) {
-    return await super.post(this.endpoint, data);
+  async fetch(id: string) {
+    return await super.fetch(id);
   }
 
-  async fetchPerson(id: string) {
-    return await super.get(`${this.endpoint}/${id}`);
+  public async create(data: PersonRequest) {
+    return await super.postRequest(this.getEndpoint(), data);
   }
 
-  async deletePerson(id: string) {
-    return await super.delete(`${this.endpoint}/${id}`);
+  async delete(id: string) {
+    return await super.delete(id);
   }
 }
 
