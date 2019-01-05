@@ -15,4 +15,3 @@ sl.Me.list().then((results) => {
   console.log(`Me results: ${results}`);
 });
 ```
-s
