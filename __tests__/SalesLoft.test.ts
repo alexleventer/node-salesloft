@@ -2,6 +2,8 @@ import SalesLoft from '../src/SalesLoft';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import {PersonRequest} from '../src/resources/People';
+import {CurrentUserResponse} from '../src/resources/Me';
+import {TeamResponse} from '../src/resources/Team';
 const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
@@ -9,7 +11,7 @@ describe('SalesLoft', async () => {
   const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People, CadenceMemberships, Users } = sl;
   describe('Me', async () => {
     it('should fetch current user', async () => {
-      const meResults = await Me.fetchCurrentUser();
+      const meResults:CurrentUserResponse = await Me.fetchCurrentUser();
       expect(meResults).to.have.property('data');
       expect(meResults.data).to.have.property('id');
       expect(meResults.data).to.have.property('guid');
@@ -19,7 +21,7 @@ describe('SalesLoft', async () => {
   });
   describe('Team', async () => {
     it('should fetch current team', async () => {
-      const teamResults = await Team.fetchCurrentTeam();
+      const teamResults:TeamResponse = await Team.fetchCurrentTeam();
       expect(teamResults).to.have.property('data');
       expect(teamResults.data).to.have.property('id');
       expect(teamResults.data).to.have.property('name');
