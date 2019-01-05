@@ -16,4 +16,16 @@ export default class PersonStages extends Resource {
   async delete(id: string) {
     return await super.delete(id);
   }
+
+  async create(data:PersonStageRequest) {
+    return await super.create(data);
+  }
+
+  async update(id: string, data:PersonStageRequest) {
+    return await super.update(id, data);
+  }
+}
+
+export interface PersonStageRequest {
+  name: string;
 }

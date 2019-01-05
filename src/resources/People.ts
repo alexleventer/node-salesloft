@@ -20,6 +20,10 @@ export default class People extends Resource {
   async delete(id: string) {
     return await super.delete(id);
   }
+
+  public async update(id: string, data: PersonRequest) {
+    return await super.update(id, data);
+  }
 }
 
 export interface PersonRequest {
