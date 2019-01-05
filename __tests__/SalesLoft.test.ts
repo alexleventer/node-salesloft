@@ -1,9 +1,9 @@
 import SalesLoft from '../src/SalesLoft';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import {PersonRequest} from '../src/resources/People';
-import {CurrentUserResponse} from '../src/resources/Me';
-import {TeamResponse} from '../src/resources/Team';
+import { PersonRequest} from '../src/resources/People';
+import { CurrentUserResponse } from '../src/resources/Me';
+import { TeamResponse } from '../src/resources/Team';
 const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {

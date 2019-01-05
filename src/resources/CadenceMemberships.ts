@@ -1,44 +1,26 @@
 import Resource from '../Resource';
 
 export default class CadenceMemberships extends Resource {
-  private readonly endpoint:string;
-  private readonly apiKey:string;
-  constructor(endpoint:string, apiKey:string) {
-    super();
+  private readonly endpoint: string;
+  constructor(endpoint: string, apiKey: string) {
+    super(apiKey);
     this.endpoint = endpoint;
-    this.apiKey = apiKey;
   }
 
   async listCadenceMemberships() {
-    return await super.get(this.endpoint, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      }
-    });
+    return await super.get(this.endpoint);
   }
 
   async createCadenceMembership(data:CadenceMembershipRequest) {
-    return await super.post(`${this.endpoint}`, data, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      }
-    });
+    return await super.post(`${this.endpoint}`, data);
   }
 
   async deleteCadenceMembership(id: string) {
-    return await super.delete(`${this.endpoint}/${id}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      }
-    });
+    return await super.delete(`${this.endpoint}/${id}`);
   }
 
   async fetchCadenceMembership(cadenceId: string) {
-    return await super.get(`${this.endpoint}/${cadenceId}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      }
-    });
+    return await super.get(`${this.endpoint}/${cadenceId}`);
   }
 }
 
