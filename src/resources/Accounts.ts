@@ -17,6 +17,14 @@ export default class Accounts extends Resource {
     });
   }
 
+  createAccount(data: AccountRequest) {
+    return this.post(this.endpoint, data, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+      }
+    });
+  }
+
   async fetchAccount(id: string) {
     return await super.get(`${this.endpoint}/${id}`, {
       headers: {
@@ -32,4 +40,15 @@ export default class Accounts extends Resource {
       }
     });
   }
+}
+
+export interface AccountRequest {
+  name: string;
+  domain: string;
+  conversational_name?: string;
+  description?: string;
+  phone?: string;
+  website?: string;
+  linkedin_url?: string;
+  twitter_handle?: string;
 }
