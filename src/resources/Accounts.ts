@@ -52,7 +52,3 @@ export interface AccountRequest {
   owner_id?: number;
   company_stage_id?: number;
 }
-
-export interface AccountResult {
-
-}

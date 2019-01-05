@@ -1,4 +1,4 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export default class Resource {
   private readonly axios: AxiosInstance;
@@ -17,7 +17,7 @@ export default class Resource {
       const config = Object.assign(_config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
-        }
+        },
       });
       const results:AxiosResponse = await this.axios.post(`${this.apiBase}${endpoint}`, data, config);
       return results.data;
@@ -35,7 +35,7 @@ export default class Resource {
       const config = Object.assign(_config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
-        }
+        },
       });
       const results:AxiosResponse = await this.axios.put(`${this.apiBase}${endpoint}`, data, config);
       return results.data;
@@ -63,7 +63,7 @@ export default class Resource {
       const config = Object.assign(_config, {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
-        }
+        },
       });
       const results:AxiosResponse = await this.axios.delete(`${this.apiBase}${endpoint}`, config);
       return results.data;

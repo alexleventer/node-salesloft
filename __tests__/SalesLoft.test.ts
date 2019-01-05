@@ -1,14 +1,24 @@
 import SalesLoft from '../src/SalesLoft';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { PersonRequest} from '../src/resources/People';
+import { PersonRequest } from '../src/resources/People';
 import { CurrentUserResponse } from '../src/resources/Me';
 import { TeamResponse } from '../src/resources/Team';
 const { API_KEY }:any = process.env;
 
 describe('SalesLoft', async () => {
   const sl =  new SalesLoft(API_KEY);
-  const { Me, Team, Accounts, Cadences, ActionDetails, Actions, People, CadenceMemberships, Users } = sl;
+  const {
+    Me,
+    Team,
+    Accounts,
+    Cadences,
+    ActionDetails,
+    Actions,
+    People,
+    CadenceMemberships,
+    Users,
+  } = sl;
   describe('Me', async () => {
     it('should fetch current user', async () => {
       const meResults:CurrentUserResponse = await Me.list();
@@ -62,7 +72,7 @@ describe('SalesLoft', async () => {
       };
       const peopleResults = await People.create(personRequest);
       expect(peopleResults).to.have.property('id');
-    })
+    });
   });
   describe('Cadence Memberships', async () => {
     it('should list cadence memberships', async () => {

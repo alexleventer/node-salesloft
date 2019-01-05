@@ -38,15 +38,15 @@ export interface CurrentUserResponse {
   crm_connected: boolean;
   phone_client: {
     id: number;
-  },
+  };
   phone_number_assignment: {
     id: number;
-  },
+  };
   group: {
     id: number;
-  },
+  };
   team: {
     id: number;
     _href: string;
-  }
+  };
 }
